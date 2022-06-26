@@ -28,16 +28,17 @@ function SignUp(props) {
     })
       .then((resp) => resp.json())
       .then((response) => {
-        if (response) {
-          alert("Account Created!");
-          navigate("/login");
-        } else if (response.errors) {
+        if (response.errors !== undefined) {
           let msg = "";
           console.log(response.errors);
           response.errors.map((error) => {
             msg += error + "\n";
           });
           alert(msg);
+        } else  {
+          console.log(response)
+          alert("Account Created!");
+          navigate("/login");
         }
       });
   }

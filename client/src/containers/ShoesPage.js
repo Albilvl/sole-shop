@@ -112,6 +112,8 @@ function ShoesPage() {
     }
   }
 
+ 
+
   return (
     <div>
       <h1>Current Listings</h1>

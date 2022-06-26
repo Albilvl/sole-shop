@@ -23,7 +23,8 @@ function Login(props) {
     })
       .then((r) => r.json())
       .then((res) => {
-        if (res.jwt !== "undefined") {
+        if (res.jwt !== undefined) {
+          console.log(res.jwt);
           localStorage.token = res.jwt;
           props.setCurrentUser(res.user);
           navigate("/shoespage")
@@ -32,6 +33,8 @@ function Login(props) {
         }
       });
   }
+
+  
 
   return (
     <>

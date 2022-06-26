@@ -54,7 +54,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Topbar loggedIn={loggedIn} user={user} logOut={logOut} />
+        <Topbar className= "Topbar" loggedIn={loggedIn} user={user} logOut={logOut} />
         <FlexboxGrid justify="center">
           <Routes>
             <Route path="/" element={<Hero loggedIn ={loggedIn} />} />
