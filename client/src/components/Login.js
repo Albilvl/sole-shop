@@ -27,7 +27,7 @@ function Login(props) {
           console.log(res.jwt);
           localStorage.token = res.jwt;
           props.setCurrentUser(res.user);
-          navigate("/shoespage")
+          navigate("/news")
         } else {
           alert(res.error);
         }

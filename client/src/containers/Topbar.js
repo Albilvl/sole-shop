@@ -33,6 +33,13 @@ function Topbar(props) {
                 >
                   Shop
                 </Nav.Item>
+                <Nav.Item
+                  onClick={() => {
+                    navigate("/news");
+                  }}
+                >
+                  News
+                </Nav.Item>
               </Nav>
               <Nav pullRight>
                 <Nav>
@@ -48,13 +55,13 @@ function Topbar(props) {
                     <Dropdown.Item onClick={() => {
                         navigate("/mylistings");
                       }}>Listings</Dropdown.Item>
-                    <Dropdown.Item
+                    {/* <Dropdown.Item
                       onClick={() => {
                         navigate("/wishlistpage");
                       }}
                     >
                       Wishlist
-                    </Dropdown.Item>
+                    </Dropdown.Item> */}
                     <Dropdown.Item onClick={() => handlelogOut()}>
                       Log Out
                     </Dropdown.Item>

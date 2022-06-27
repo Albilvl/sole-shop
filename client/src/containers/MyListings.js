@@ -28,7 +28,7 @@ function MyListings() {
       <Divider />
       <Row>
         {myArray.map((shoe) => (
-          <ShoeCard shoe={shoe} key={shoe.id} text="Wishlist" />
+          <ShoeCard shoe={shoe} key={shoe.id} text="Listing" />
         ))}
       </Row>
     </div>

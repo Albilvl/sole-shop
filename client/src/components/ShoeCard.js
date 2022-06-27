@@ -32,8 +32,8 @@ function ShoeCard(props) {
         </Panel>
         <Panel>
           <ButtonToolbar>
-            <Button appearance="primary" onClick={()=>props.handleClick(props.shoe)} >{props.text === "Wishlist" ? <>Remove</> : <>Add to Wishlist</>}</Button>
-            <Button appearance="primary">Add to Cart</Button>
+            <Button appearance="primary" onClick={()=>props.handleClick(props.shoe)} >{props.text === "Listing" ? <>Remove</> : <>Add to Cart</>}</Button>
+            {/* <Button appearance="primary">Add to Cart</Button> */}
           </ButtonToolbar>
         </Panel>
       </Panel>

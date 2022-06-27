@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import ShoeDetails from "./components/ShoeDetails";
 import SignUp from "./components/SignUp";
 import MyListings from "./containers/MyListings";
+import News from "./containers/News";
 import SellPage from "./containers/SellPage";
 import ShoesPage from "./containers/ShoesPage";
 import Topbar from "./containers/Topbar";
@@ -51,9 +52,11 @@ function App() {
     }
   }, []);
 
+  // {backgroundImage: `linear-gradient(135deg, rgb(3,127,255),rgb(225,60,60) )`}
+
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App" >
         <Topbar className= "Topbar" loggedIn={loggedIn} user={user} logOut={logOut} />
         <FlexboxGrid justify="center">
           <Routes>
@@ -68,13 +71,14 @@ function App() {
               />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/sellpage" element={<SellPage />} />
-              <Route path="/wishlistpage" element={<WishlistPage />} />
+              <Route path="/news" element={<News user={user} />} />
+              <Route path="/wishlistpage" element={<WishlistPage user={user} />} />
               <Route path="/mylistings" element={<MyListings />} />
               <Route path="/shoes/:id" element={<ShoeDetails />} />
               {/* <Route path="*" element={<ErrorPage />} /> */}
             </Routes>
           </FlexboxGrid.Item>
-        </FlexboxGrid>
+        </FlexboxGrid>      
       </div>
     </BrowserRouter>
   );
