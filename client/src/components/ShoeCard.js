@@ -18,7 +18,7 @@ function ShoeCard(props) {
       >
         <img
           src={props.shoe.image}
-          style={{ display: "inline-block", width: "100%", height: "195px" }}
+          style={{ display: "inline-block", width: "100%", height: "160px" }}
           alt={props.shoe.colorway}
           onClick={() => navigate(`/shoes/${props.shoe.id}`)}
         />

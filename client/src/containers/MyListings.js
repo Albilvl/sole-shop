@@ -1,9 +1,11 @@
 import { React, useEffect, useState } from "react";
-import { Divider, Row } from "rsuite";
+import { Button, Divider, Row } from "rsuite";
 import ShoeCard from "../components/ShoeCard";
+import {useNavigate} from "react-router-dom"
 
 function MyListings() {
   const [myArray, setMyArray] = useState([]);
+  let navigate = useNavigate();
 
   function myFetch() {
     fetch("/myshoes", {
@@ -20,7 +22,23 @@ function MyListings() {
 
   useEffect(() => {
     myFetch();
+  
   }, []);
+
+
+  function handleDelete(deletedShoe){
+    fetch(`/shoes/${deletedShoe.id}`, {
+      method: "DELETE",
+    })
+    .then(resp => resp.json())
+    .then(()=>{
+      const updatedShoes = myArray.filter(shoe => shoe.id !== deletedShoe.id)
+      setMyArray(updatedShoes)
+    })
+    
+  }
+
+
 
   return (
     <div>
@@ -28,8 +46,12 @@ function MyListings() {
       <Divider />
       <Row>
         {myArray.map((shoe) => (
-          <ShoeCard shoe={shoe} key={shoe.id} text="Listing" />
+          <ShoeCard shoe={shoe} key={shoe.id} text="Listing" handleClick= {handleDelete}/>
         ))}
+        {myArray.length === 0 && 
+        <div>
+          <Button onClick= {() => navigate("/sellpage")}>CREATE A LISTING</Button>
+        </div> }
       </Row>
     </div>
   );

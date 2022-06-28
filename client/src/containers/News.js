@@ -10,9 +10,7 @@ function News({user}) {
       <Row>
         <Timeline
           dataSource={{ sourceType: "profile", screenName: "SneakerNews" }}
-          options={{
-            height: "800",
-          }}
+          options={{  width: "800", height: "800" }}
         />
       </Row>
     </div>

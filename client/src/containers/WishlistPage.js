@@ -7,8 +7,8 @@ function WishlistPage() {
  
 
   const opts = {
-    height: "250",
-    width: "400",
+    height: "400",
+    width: "800",
     playerVars: {
       autoplay: 1,
     },

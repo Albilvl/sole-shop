@@ -17,8 +17,14 @@ class ShoesController < ApplicationController
         shoes = Shoe.find(params[:id])
         
         render(json: shoes, :include => :user)
-     end
+    end
 
+    def destroy
+        shoe = Shoe.find(params[:id])
+        shoe.destroy
+        head :no_content
+    end
+    
 
     private
     def shoe_params

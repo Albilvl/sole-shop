@@ -610,5 +610,24 @@
   }
 }
 
+.div1 {
+  width: 30%;
+  float: left;
+}
 
+.div2 {
+  width: 70%;
+  float: left;
+}
 
+.div3 {
+  width: 20%;
+  height: 800px;
+  float: right;
+  /* justify-content: center;
+  text-align: center; */
+  background-image: url("https://i.pinimg.com/736x/be/b2/a6/beb2a67ed1e08dca8da17b818bae06ce.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+}

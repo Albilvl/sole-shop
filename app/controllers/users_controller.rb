@@ -12,6 +12,8 @@ class UsersController < ApplicationController
         shoes =  current_user.shoes.all
         render json: shoes
     end
+
+
     
 
     private

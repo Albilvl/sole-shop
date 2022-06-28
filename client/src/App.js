@@ -52,6 +52,14 @@ function App() {
     }
   }, []);
 
+
+
+
+
+
+
+
+
   // {backgroundImage: `linear-gradient(135deg, rgb(3,127,255),rgb(225,60,60) )`}
 
   return (

@@ -1,11 +1,18 @@
-import React from "react";
+import {React, useState} from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Dropdown, Header, Nav, Navbar } from "rsuite";
+// import { Modal} from 'react-bootstrap';
+import { Container, Dropdown, Header, Nav, Navbar, Button, Modal } from "rsuite";
+import Cart from "../components/Cart";
 
 function Topbar(props) {
   let navigate = useNavigate();
 
   const { username } = props.user;
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  
 
   function handlelogOut (){
     props.logOut()
@@ -50,7 +57,10 @@ function Topbar(props) {
                   >
                     Sell
                   </Nav.Item>
-                  <Nav.Item>Cart</Nav.Item>
+                  <Nav.Item
+                    onClick={() => {setShow(!show)}}
+                  >Cart
+                  </Nav.Item>
                   <Dropdown title={username}>
                     <Dropdown.Item onClick={() => {
                         navigate("/mylistings");
@@ -90,6 +100,24 @@ function Topbar(props) {
             </>
           )}
         </Navbar>
+        <Modal
+                    open={show}
+                    onClose={handleClose}
+                    >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Your Cart</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Cart 
+                        // userData={userData}
+                        // cartItem={cartItem}
+                        // setCartItem={setCartItem}
+                    />
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={() => alert("Get your money up not your funny up!")} >Checkout</Button>
+                    </Modal.Footer>
+                </Modal>  
       </Header>
     </Container>
   );
