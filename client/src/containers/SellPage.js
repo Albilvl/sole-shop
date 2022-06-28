@@ -1,5 +1,6 @@
 import {React, useState} from "react";
 import { Button, ButtonToolbar, FlexboxGrid, Form, Panel } from "rsuite";
+import { useNavigate } from "react-router-dom";
 
 
 function SellPage() {
@@ -10,6 +11,8 @@ function SellPage() {
   const [size, setSize] = useState('')
   const [image, setImage] = useState('')
   const [colorway, setColorway] = useState('')
+
+  const navigate = useNavigate()
 
 
 
@@ -33,7 +36,11 @@ function SellPage() {
       body: JSON.stringify(newShoe),
     })
     .then((res) => res.json())
-    .then(res => console.log(res))
+    .then(res => {
+      if(res.id === undefined){
+        alert("Error")
+      } else {navigate("/shoespage")}
+    })
   }
 
 
